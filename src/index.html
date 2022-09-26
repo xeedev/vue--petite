@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Vue-Petite</title>
+</head>
+<body>
+    <template id="app">
+        {{count}}
+        <button @click="increment" class="rounded py-2 px-4 bg-blue-500 hover:bg-blue-400 text-white">
+            Increment
+        </button>
+    </template>
+    <div v-scope="data()"></div>
+    <script type="module">
+        import { createApp } from "https://unpkg.com/petite-vue?module"
+        function data(){
+            return {
+                $template:"#app",
+                count:0,
+                increment(){
+                    this.count++
+                }
+            }
+        }
+        createApp({data}).mount()
+    </script>
+</body>
+</html>
